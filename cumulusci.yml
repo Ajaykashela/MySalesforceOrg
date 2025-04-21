@@ -1,0 +1,26 @@
+minimum_cumulusci_version: '4.3.0'
+project:
+    name: my-personal-org
+    package:
+        name: myCumulusCiPackage
+        api_version: '62.0'
+    dependencies:
+        - github: 'git@github.com:Ajaykashela/MySalesforceOrg.git'
+    git:
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/my-personal-org/tests
+            options:
+                outputdir: robot/my-personal-org/results
+
+    robot_testdoc:
+        options:
+            path: robot/my-personal-org/tests
+            output: robot/my-personal-org/doc/my-personal-org_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75

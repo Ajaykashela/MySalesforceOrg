@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title="Account Details" icon-name="standard:account">
+        <!-- Display Account Info -->
+        <template if:true={account.data}>
+            <p><strong>Name:</strong> {name}</p>
+            <p><strong>Phone:</strong> {phone}</p>
+        </template>
+
+        <!-- Display Error if Account Fetch Fails -->
+        <template if:true={account.error}>
+            <p class="slds-text-color_error">Error: {account.error.message}</p>
+        </template>
+
+        <!-- Account Input Field -->
+        <lightning-input type="text" data-id="account_name" label="Account Name"></lightning-input>
+
+        <!-- Action Buttons -->
+        <lightning-button label="Create Account" onclick={createAccount}></lightning-button>
+        <lightning-button label="Update Account" onclick={updateAccountName}></lightning-button>
+        <lightning-button label="Delete Account" onclick={deleteAccount}></lightning-button>
+        <lightning-button label="Refresh Contacts" onclick={refreshContacts}></lightning-button>
+
+        <!-- Debug Info -->
+        <pre>{debugData}</pre>
+
+        <!-- Contact Related List -->
+        <lightning-datatable 
+            data={data} 
+            key-field="Id" 
+            columns={contactFields}>
+        </lightning-datatable>
+    </lightning-card>
+</template>
