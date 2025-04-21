@@ -1,0 +1,6 @@
+<template>
+    <lightning-card title="Comp A">
+        <c-comp-b lwc:ref="compb" comp-aexposed-name="sent from compA" onmessagetoparent={handleparent}></c-comp-b>
+        <lightning-button onclick={calledFromParent} name="call child method" label="call child mehtod" variant="brand"></lightning-button>
+    </lightning-card>
+</template>
