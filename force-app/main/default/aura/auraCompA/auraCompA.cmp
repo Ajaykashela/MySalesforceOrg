@@ -1,0 +1,8 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+    <aura:handler name="compEvent1" event="c:compEvent" action="{!c.handleComponentEvent}"></aura:handler>    
+    <aura:handler event="c:applicationEvent" action="{!c.handleApplicationEvent}"></aura:handler>    
+<lightning:card title="Aura Comp A">
+        
+        <c:auraCompB message="this message is from parent"></c:auraCompB>
+    </lightning:card>
+</aura:component>	

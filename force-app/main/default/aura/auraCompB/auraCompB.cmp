@@ -1,0 +1,17 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+<aura:attribute type="String" name="message"/>
+<aura:registerEvent type="c:compEvent" name="compEvent1"></aura:registerEvent>
+<!--<aura:registerEvent type="c:applicationEvent" name="applicationEvent1"></aura:registerEvent>-->
+<lightning:card title="Aura Comp B"></lightning:card>
+{!v.message}
+<lightning:button 
+  variant="brand"
+  label="fire component event" 
+  onclick="{!c.compEvent}"
+></lightning:button>
+<lightning:button 
+  variant="brand"
+  label="fire application event" 
+  onclick="{!c.applicationEvent}"
+></lightning:button>
+</aura:component>	

@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION" description="this is test event">
+    <aura:attribute type="String" name="message"></aura:attribute>
+</aura:event>
