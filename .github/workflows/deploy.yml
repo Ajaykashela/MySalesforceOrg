@@ -1,0 +1,37 @@
+name: Deploy to Salesforce via JWT
+
+on:
+  push:
+    branches:
+      - master  # Trigger on master branche
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    container:
+      image: salesforce/salesforcedx:latest-slim  # Use Salesforce DX Docker image
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - name: Create JWT Key File
+        run: |
+          echo "$SFDX_JWT_KEY" > server.key
+        env:
+          SFDX_JWT_KEY: ${{ secrets.SFDX_JWT_KEY }}
+
+      - name: Authenticate with Salesforce (JWT)
+        run: |
+          sfdx auth:jwt:grant \
+            --clientid ${{ secrets.SFDX_PROD_CLIENT_ID }} \
+            --jwtkeyfile server.key \
+            --username ${{ secrets.SFDX_PROD_USERNAME }} \
+            --instanceurl ${{ secrets.SFDX_PROD_LOGIN_URL }} \
+            --setalias DevOrg \
+            --setdefault
+
+      - name: Deploy to Salesforce
+        run: |
+          sfdx force:source:deploy -p force-app/main/default -u DevOrg -c
