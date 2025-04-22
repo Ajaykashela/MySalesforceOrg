@@ -1,27 +1,27 @@
-name: SFDX Basic Workflow
+# name: SFDX Basic Workflow
 
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+# on:
+#   push:
+#     branches:
+#       - master
+#   pull_request:
+#     branches:
+#       - master
 
-jobs:
-  sfdx-check:
-    runs-on: ubuntu-latest
+# jobs:
+#   sfdx-check:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+#     steps:
+#       - name: Checkout Repository
+#         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: '16'
 
-      - name: Install Salesforce CLI
-        run: |
-          npm install sfdx-cli --global
-          sfdx --version
+#       - name: Install Salesforce CLI
+#         run: |
+#           npm install sfdx-cli --global
+#           sfdx --version
