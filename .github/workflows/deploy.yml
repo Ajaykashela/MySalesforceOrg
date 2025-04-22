@@ -30,7 +30,7 @@ jobs:
             --username ${{ secrets.SFDX_PROD_USERNAME }} \
             --instanceurl ${{ secrets.SFDX_PROD_LOGIN_URL }} \
             --setalias DevOrg \
-            --setdefault
+            --setdefaultusername
 
       - name: Deploy to Salesforce
         run: |
