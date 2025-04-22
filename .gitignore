@@ -43,3 +43,9 @@ $RECYCLE.BIN/
 **/__pycache__/
 **/.venv/
 **/venv/
+
+
+# Ignore keys
+openssl
+server.crt
+server.key
