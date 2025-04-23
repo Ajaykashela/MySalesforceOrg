@@ -34,4 +34,4 @@ jobs:
 
       - name: Deploy to Salesforce
         run: |
-          sfdx force:source:deploy -p force-app/main/default -u DevOrg -c
+          sfdx force:source:deploy -p force-app/main/default -u DevOrg
